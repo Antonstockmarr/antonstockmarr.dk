@@ -82,20 +82,27 @@ h1 {
 @media only screen and (min-width: 1000px) {
 
     .projects {
+        display: -ms-grid;
         display: grid;
+        -ms-grid-columns: 1fr 50px 1fr 50px 1fr;
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 50px;
     }
 
     h1 {
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
         transition: all 0.5s ease;
     }
 
     .hidden h1 {
-        transform: translateX(-200px);
+        -moz-transform: translateX(-200px);
+        -webkit-transform: translateX(-200px);
+            -ms-transform: translateX(-200px);
+                transform: translateX(-200px);
         opacity: 0;
     }
-
     :nth-child(1) { --nth-child: 1}
     :nth-child(2) { --nth-child: 2}
     :nth-child(3) { --nth-child: 3}
@@ -111,6 +118,9 @@ h1 {
     .hidden .project {
         opacity: 0;
         transform: translateY(100px);
+        -moz-transform: translateY(100px);
+        -o-transform: translateY(100px);
+        -webkit-transform: translateY(100px);
     }
 }
 

@@ -56,6 +56,9 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   line-height: 30px;
   font-size: 24px;
@@ -71,6 +74,9 @@ button {
   position: absolute;
   top: 75%;
   left: 50%;
+  -webkit-transform: translate(-50%, -75%);
+  -o-transform: translate(-50%, -75%);
+  -ms-transform: translate(-50%, -75%);
   transform: translate(-50%, -75%);
   color: black;
   font-size: 20px;
@@ -82,8 +88,6 @@ button {
 button:hover {
   background: var(--col1);
   letter-spacing: 1px;
-  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
   box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 }
 
@@ -121,8 +125,17 @@ button:hover {
   left: 0;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
   animation: run 7s 0s infinite;
+  -moz-animation: run 7s 0s infinite;
+  -o-animation: run 7s 0s infinite;
+  -webkit-animation: run 7s 0s infinite;
   animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+  -moz-animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+  -o-animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+  -webkit-animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
 }
 
 .few .line:nth-child(1) {
@@ -131,6 +144,9 @@ button:hover {
 
 .few .line:nth-child(1)::after {
   animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  -webkit-animation-delay: 2s;
 }
 
 .few .line:nth-child(3) {
@@ -138,7 +154,10 @@ button:hover {
 }
 
 .few .line:nth-child(3)::after {
-  animation-delay: 2.5s
+  -o-animation-delay: 2.5s;
+  -moz-animation-delay: 2.5s;
+  -webkit-animation-delay: 2.5s;
+  animation-delay: 2.5s;
 }
   
     
@@ -153,17 +172,20 @@ button:hover {
 
 .delay-1 {
     -webkit-animation-delay: 500ms;
-    -moz-animation-delay: none;
+    -moz-animation-delay: 500ms;
+    -o-animation-delay: 500ms;
     animation-delay: 500ms;
 }
 .delay-2 {
     -webkit-animation-delay: 1000ms;
-    -moz-animation-delay: none;
+    -moz-animation-delay: 1000ms;
+    -o-animation-delay: 1000ms;
     animation-delay: 1000ms;
 }
 .delay-3 {
     -webkit-animation-delay: 1500ms;
-    -moz-animation-delay: none;
+    -moz-animation-delay: 1500ms;
+    -o-animation-delay: 1500ms;
     animation-delay: 1500ms;
 }
   
@@ -207,6 +229,9 @@ button:hover {
 
   .many .line::after {
     animation-delay: calc(var(--nth-delay) * 0.5s);
+    -o-animation-delay: calc(var(--nth-delay) * 0.5s);
+    -moz-animation-delay: calc(var(--nth-delay) * 0.5s);
+    -webkit-animation-delay: calc(var(--nth-delay) * 0.5s);
   }
 }
 </style>

@@ -52,6 +52,9 @@ export default {
   left: 0;
   width: 100%;
   transform: skewY(2deg);
+  -o-transform: skewY(2deg);
+  -moz-transform: skewY(2deg);
+  -webkit-transform: skewY(2deg);
   z-index: 1;
 }
 
@@ -67,6 +70,9 @@ export default {
   left: 0;
   width: 100%;
   transform: skewY(2deg);
+  -o-transform: skewY(2deg);
+  -moz-transform: skewY(2deg);
+  -webkit-transform: skewY(2deg);
   z-index: 1;
 }
 
@@ -90,10 +96,16 @@ h1 {
 
   .background:before {
     transform: skewY(1deg);
+    -o-transform: skewY(1deg);
+    -moz-transform: skewY(1deg);
+    -webkit-transform: skewY(1deg);
   }
 
   .background:after {
     transform: skewY(1deg);
+    -o-transform: skewY(1deg);
+    -moz-transform: skewY(1deg);
+    -webkit-transform: skewY(1deg);
   }
 
   h1 {
@@ -102,6 +114,9 @@ h1 {
 
   h1.hidden {
     transform: translateX(-200px);
+    -o-transform: translateX(-200px);
+    -moz-transform: translateX(-200px);
+    -webkit-transform: translateX(-200px);
     opacity: 0;
   }
 
@@ -115,6 +130,9 @@ h1 {
 
   .text.hidden {
     transform: translateY(100px);
+    -o-transform: translateY(100px);
+    -moz-transform: translateY(100px);
+    -webkit-transform: translateY(100px);
     opacity: 0;
   }
 

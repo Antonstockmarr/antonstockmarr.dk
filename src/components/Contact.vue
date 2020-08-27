@@ -76,19 +76,22 @@ export default {
   padding: 64px;
   width: 100%;
   display: grid;
+  display: -ms-grid;
+  -ms-grid-columns: 1fr 64px 64px 64px 1fr;
   grid-template-columns: 1fr 64px 64px 64px 1fr;
   grid-auto-rows: 64px;
-  grid-template-areas: 
-    "nothing1 github nothing2 linkedin nothing3";
 }
-
 img {
   width: 100%;
   height: 100%;
 }
 
 .github {
-  grid-area: github;
+  grid-row: 1;
+  grid-column: 2;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+
 }
 
 .github:hover {
@@ -98,7 +101,10 @@ img {
 }
 
 .linkedin {
-  grid-area: linkedin;
+  grid-row: 1;
+  grid-column: 4;
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
 }
 
 .linkedin:hover {

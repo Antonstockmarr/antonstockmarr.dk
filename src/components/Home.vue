@@ -103,25 +103,34 @@ p {
         height: 300px;
     }
 
-    .grid {
+ .grid {
+        display: -ms-grid;
         display: grid;
+        -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
     }
 
     .grid div {
+        -webkit-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
         transition: all 0.5s ease;
     }
 
     .hiddenRight {
         opacity: 0;
-        transform: translateX(200px);
+        -webkit-transform: translateX(200px);
+           -moz-transform: translateX(200px);
+            -ms-transform: translateX(200px);
+                transform: translateX(200px);
     }
 
     .hiddenLeft {
         opacity: 0;
-        transform: translateX(-200px);
+        -webkit-transform: translateX(-200px);
+           -moz-transform: translateX(-200px);
+            -ms-transform: translateX(-200px);
+                transform: translateX(-200px);
     }
-
 }
 
 </style>

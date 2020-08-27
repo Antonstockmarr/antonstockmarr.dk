@@ -28,6 +28,9 @@ export default {
 	bottom: auto;
 	right: auto;
 	background: var(--col1);
+    -moz-transition: all 0.9s cubic-bezier(0.6, 0.05, 0.4, 1);
+    -webkit-transition: all 0.9s cubic-bezier(0.6, 0.05, 0.4, 1);
+    -o-transition: all 0.9s cubic-bezier(0.6, 0.05, 0.4, 1);
     transition: all 0.9s cubic-bezier(0.6, 0.05, 0.4, 1);
     z-index: 10;
 }
@@ -36,19 +39,30 @@ export default {
 } 
 .top-layer--2 {
 	background: var(--col2);
+	-moz-transition-delay: 0.1s;
+	-webkit-transition-delay: 0.1s;
+	-o-transition-delay: 0.1s;
 	transition-delay: 0.1s;
 }
 .top-layer--3 {
 	background: var(--col3);
+	-moz-transition-delay: 0.2s;
+	-webkit-transition-delay: 0.2s;
+	-o-transition-delay: 0.2s;
 	transition-delay: 0.2s;
 }
 .top-layer--4 {
 	background: var(--col4);
+	-moz-transition-delay: 0.4s;
+	-webkit-transition-delay: 0.4s;
+	-o-transition-delay: 0.4s;
 	transition-delay: 0.4s;
 }
 .top-layer--5 {
 	background: var(--col5);
+	-moz-transition-delay: 0.6s;
+	-webkit-transition-delay: 0.6s;
+	-o-transition-delay: 0.6s;
 	transition-delay: 0.6s;
 }
-
 </style>
