@@ -1,6 +1,6 @@
 <template>
     <div class="project-preview">
-        <div class="small-screen preview" :style="{ backgroundImage: 'url(' + require(`@/assets/${this.image}`) + ')' }">
+        <div class="small-screen preview" :class="{expanded: this.expanded}" :style="{ backgroundImage: 'url(' + require(`@/assets/${this.image}`) + ')' }" @mouseover="expanded=true" @mouseleave="expanded=false">
             <div class="banner">
                 <div class="name">
                     <h1>{{name}}</h1>
@@ -28,6 +28,11 @@ export default {
         },
         close() {
             this.$emit('close');
+        }
+    },
+    data() {
+        return {
+            expanded: false
         }
     }
 }
@@ -75,7 +80,7 @@ export default {
 }
 
 
-.preview:hover .banner {
+.expanded .banner {
     opacity: 1;
     max-width: 100%;
     padding-left: 20px;
@@ -104,6 +109,13 @@ button {
 }
 
 @media only screen and (min-width: 1000px) {
+
+    .preview:hover .banner {
+        opacity: 1;
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 40px;
+    }
 
     .small-screen {
         display: none;
