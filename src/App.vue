@@ -3,8 +3,8 @@
 
   <div id="app">
     <Transition :toggle="transition" />
-    <Front v-on:goToMain="goToMain" v-show="content===`front`"/>
-    <Main v-on:goToFront="goToFront" v-show="content===`main`"/>
+    <Front v-on:goToMain="goToMain" :show="content===`front`"/>
+    <Main v-on:goToFront="goToFront" :show="content===`main`"/>
   </div>
 </template>
 

@@ -16,6 +16,7 @@ export default {
 </script>
 
 <style>
+@import "../colors.css";
 
 
 .top-layer {
@@ -26,7 +27,7 @@ export default {
 	left: 0;
 	bottom: auto;
 	right: auto;
-	background: #393e46;
+	background: var(--col1);
     transition: all 0.9s cubic-bezier(0.6, 0.05, 0.4, 1);
     z-index: 10;
 }
@@ -34,20 +35,19 @@ export default {
     top: 100%;
 } 
 .top-layer--2 {
-	background: #6c567b;
+	background: var(--col2);
 	transition-delay: 0.1s;
-
 }
 .top-layer--3 {
-	background: #6c5b7b;
+	background: var(--col3);
 	transition-delay: 0.2s;
 }
 .top-layer--4 {
-	background: #c06c84;
+	background: var(--col4);
 	transition-delay: 0.4s;
 }
 .top-layer--5 {
-	background: #f67280;
+	background: var(--col5);
 	transition-delay: 0.6s;
 }
 

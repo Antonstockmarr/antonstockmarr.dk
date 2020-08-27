@@ -1,9 +1,8 @@
 <template>
-    <div class="main">
+    <div class="main" v-show="show">
         <Header v-on:scrollTo="scrollTo" v-on:goToFront="goToFront"/>
-        <About/>
-        <Skills :toggle="showSkills"/>
-        <MyWork />
+        <Home :toggle="showSkills"/>
+        <MyWork :toggle="showWork"/>
         <Background :toggle="showBackground"/>
         <Contact :toggle="showContact"/>
     </div>
@@ -13,25 +12,25 @@
 
 <script>
 import Header from "./Header"
-import About from "./About"
+import Home from "./Home"
 import Background from "./Background"
 import MyWork from "./MyWork"
-import Skills from "./Skills"
 import Contact from "./Contact"
 
 export default {
     name: 'Main',
     components: {
         Header,
-        About,
+        Home,
         Background,
         MyWork,
-        Skills,
-        Contact
+        Contact,
     },
+    props: ['show'],
     data() {
         return {
             showSkills: false,
+            showWork: false,
             showBackground: false,
             showContact: false
         }
@@ -50,23 +49,25 @@ export default {
             let height = el.offsetHeight;
             return (
                 rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + (1-fraction)*height &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + (1-fraction)*height
             );
         },
         callbackFunc() {
             let chart = document.querySelector(".chart-container");
             if (this.isElementInViewport(chart, 0.75)) {
                 this.showSkills = true;
-            }/*
+            }
             let background = document.querySelector(".background");
             if (this.isElementInViewport(background, 1)) {
                 this.showBackground = true;
-            }*/
+            }
             let contact = document.querySelector(".contact-banner");
             if (this.isElementInViewport(contact, 1)) {
                 this.showContact = true;
+            }
+            let work = document.querySelector(".my-work");
+            if (this.isElementInViewport(work, 0.5)) {
+                this.showWork = true;
             }
         },
         scrollTo(el) {
@@ -78,6 +79,13 @@ export default {
         },
         goToFront() {
             this.$emit("goToFront");
+        }
+    },
+    watch: {
+        show: function(val) {
+            if (val) {
+                setTimeout(this.callbackFunc, 1000);
+            }
         }
     }
 }
