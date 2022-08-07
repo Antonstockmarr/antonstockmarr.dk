@@ -8,18 +8,16 @@
           </div>
           <ul :class="{expanded: expanded}">
             <li @click="goToFront()">Front</li>
-            <li @click="scrollTo(`.home`)">Home</li>
+            <li @click="scrollTo(`.about-me`)">About me</li>
             <li @click="scrollTo(`.my-work`)">My Work</li>
-            <li @click="scrollTo(`.background`)">About Me</li>
             <li @click="scrollTo(`.contact`)">Contact</li>
           </ul>
         </nav>
       <Wrapper :width="'1000px'">
         <ul class="navbar">
           <li @click="goToFront()">Front</li>
-          <li @click="scrollTo(`.home`)">Home</li>
+          <li @click="scrollTo(`.about-me`)">About me</li>
           <li @click="scrollTo(`.my-work`)">My Work</li>
-          <li @click="scrollTo(`.background`)">About Me</li>
           <li @click="scrollTo(`.contact`)">Contact</li>
         </ul>
       </Wrapper>

@@ -62,7 +62,7 @@ export default {
 
 .content {
     box-sizing: border-box;
-    padding: 30px 15px 100px;
+    padding: 60px 15px 100px;
     width: 100%;
 }
 

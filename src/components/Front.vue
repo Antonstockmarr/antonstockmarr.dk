@@ -19,8 +19,8 @@
       <div class="line"></div>
     </div>
     <div class="text">
-      <p class="animated fadeIn delay-1">Hello, my name is <span class="name">Anton Stockmarr</span>,</p>
-      <p class="animated fadeIn delay-2">and I study Computer Science.</p>
+      <p class="animated fadeIn delay-1">Hello, I'm <span class="name">Anton Stockmarr</span>.</p>
+      <h1 class="animated fadeIn delay-2">I'm a software engineer.</h1>
     </div>
     <button class="animated fadeIn delay-3" @click="goToMain">Continue</button>
   </div>
@@ -66,6 +66,16 @@ export default {
   text-align: center;
 }
 
+p {
+  line-height: 30px;
+  font-size: 24px;
+}
+
+h1 {
+  line-height: 56px;
+  font-size: 40px;
+}
+
 .name {
   font-style: italic;
 }
@@ -83,6 +93,7 @@ button {
   background: var(--col5);
   padding: 10px 20px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 button:hover {
@@ -193,9 +204,14 @@ button:hover {
 @media only screen and (min-width: 1000px) {
 
 
-  .text {
-    font-size: 56px;
+  p {
+    font-size: 40px;
     line-height: 64px;
+  }
+
+  h1 {
+    line-height: 88px;
+    font-size: 88px;
   }
 
   button {

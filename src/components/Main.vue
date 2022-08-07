@@ -1,37 +1,37 @@
 <template>
-    <div class="main" v-show="show">
-        <Header v-on:scrollTo="scrollTo" v-on:goToFront="goToFront"/>
-        <Home :toggle="showSkills"/>
+    <main class="main" v-show="show">
+        <Header v-on:scrollTo="scrollTo" v-on:goToFront="goToFront" />
+        <AboutMe :toggle="showAboutMe"/>
+        <Skills :toggle="showSkills" />
         <MyWork :toggle="showWork"/>
-        <Background :toggle="showBackground"/>
         <Contact :toggle="showContact"/>
-    </div>
+    </main>
 </template>
 
 
 
 <script>
 import Header from "./Header"
-import Home from "./Home"
-import Background from "./Background"
 import MyWork from "./MyWork"
 import Contact from "./Contact"
+import AboutMe from "./AboutMe.vue"
+import Skills from "./Skills.vue"
 
 export default {
     name: 'Main',
     components: {
-        Header,
-        Home,
-        Background,
-        MyWork,
-        Contact,
-    },
+    Header,
+    MyWork,
+    Contact,
+    AboutMe,
+    Skills
+},
     props: ['show'],
     data() {
         return {
             showSkills: false,
             showWork: false,
-            showBackground: false,
+            showAboutMe: false,
             showContact: false
         }
     },
@@ -53,13 +53,13 @@ export default {
             );
         },
         callbackFunc() {
-            let chart = document.querySelector(".chart-container");
-            if (this.isElementInViewport(chart, 0.75)) {
-                this.showSkills = true;
+            let aboutMe = document.querySelector(".about-me");
+            if (this.isElementInViewport(aboutMe, 0.75)) {
+                this.showAboutMe = true;
             }
-            let background = document.querySelector(".background");
-            if (this.isElementInViewport(background, 1)) {
-                this.showBackground = true;
+            let skills = document.querySelector(".skills");
+            if (this.isElementInViewport(skills, 1)) {
+                this.showSkills = true;
             }
             let contact = document.querySelector(".contact-banner");
             if (this.isElementInViewport(contact, 1)) {
