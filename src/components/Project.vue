@@ -58,6 +58,9 @@ export default {
     height: 100%;
 }
 
+.hidden.content {
+    transform: scale(0.5);
+}
 
 .close-btn {
     transition: all 0.5s ease-in-out;
@@ -107,6 +110,10 @@ export default {
 
 
 @media only screen and (min-width: 1000px) {
+
+    .hidden.content {
+    transform: scale(1);
+}
 
     .content {
         top: 100px;
