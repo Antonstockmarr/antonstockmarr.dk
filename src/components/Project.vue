@@ -1,41 +1,32 @@
 <template>
     <div class="project">
         <ProjectPreview :name="name" :image="image" v-on:expand="expand"/>
-        <Overlay :show ="expanded" v-on:close="close">
-            <button class="close-btn" @click="close">Close</button>
-            <div class="content">
-                <div class="top-image" :style="{ backgroundImage: 'url(' + require(`@/assets/${this.banner}`) + ')' }"></div>
-                <div class="project-description">
-                    <h1>{{name}}</h1>
-                    <p>{{description}}</p>
-                </div>
+        <button class="close-btn" :class="{hidden: !expanded}" @click="close">Close</button>
+        <div class="content" :class="{hidden: !expanded}">
+            <div class="top-image" :style="{ backgroundImage: 'url(' + require(`@/assets/${this.banner}`) + ')' }"></div>
+            <div class="project-description">
+                <h1>{{name}}</h1>
+                <p>{{description}}</p>
             </div>
-        </Overlay>
+        </div>
     </div>
 </template>
 
 <script>
 import ProjectPreview from "./ProjectPreview"
-import Overlay from "./Overlay"
 
 export default {
     name: 'Project',
-    props: ['name', 'image', 'banner', 'description'],
+    props: ['name', 'image', 'banner', 'description', 'expanded'],
     components: {
-        Overlay,
         ProjectPreview
-    },
-    data() {
-        return {
-            expanded: false
-        }
     },
     methods: {
         expand() {
-            this.expanded = true;
+            this.$emit('expand');
         },
         close() {
-            this.expanded = false;
+            this.$emit('close');
         }
     }
 }
@@ -44,8 +35,36 @@ export default {
 <style scoped>
 @import "../colors.css";
 
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.content {
+    transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+
+    overflow: auto;
+    height: 100%;
+}
+
 
 .close-btn {
+    transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+
     font-size: 18px;
     background-color: var(--col3);
     padding: 5px 10px;
@@ -61,11 +80,6 @@ export default {
 
 .close-btn:hover {
     background-color: var(--col4);
-}
-
-.content {
-    overflow: auto;
-    height: 100%;
 }
 
 .top-image {
@@ -93,6 +107,14 @@ export default {
 
 
 @media only screen and (min-width: 1000px) {
+
+    .content {
+        top: 100px;
+        right: 150px;
+        left: 150px;
+        bottom: 100px;
+        height: calc(100% - 200px);
+    }
 
     .close-btn {
         display: none;

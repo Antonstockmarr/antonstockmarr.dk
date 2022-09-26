@@ -1,16 +1,20 @@
 <template>
-  <div class="my-work">
-      <Wrapper :width="'1000px'" :class="{hidden: !toggle}">
-          <div class="content">
-            <h1>My Work</h1>
-            <div class="projects">
-                <div class="project" v-bind:key="project.id" v-for="project in projects">
-                    <Project :name="project.name" :image="project.image" :banner="project.banner" :description="project.description"/>
+    <div class="my-work">
+        <Overlay :show ="expanded" v-on:close="close">
+            <div class="work-navigation left" :class="{hidden: !expanded}" @click="previous"></div>
+            <div class="work-navigation right" :class="{hidden: !expanded}" @click="next"></div>
+        </Overlay>
+        <Wrapper :width="'1000px'" :class="{hidden: !toggle}">
+            <div class="content">
+                <h1>My Work</h1>
+                <div class="projects">
+                    <div class="project" v-bind:key="project.id" v-for="project in projects">
+                        <Project :name="project.name" :image="project.image" :banner="project.banner" :description="project.description" :expanded="selectedId == project.id" v-on:expand="expand(project.id)" v-on:close="close"/>
+                    </div>
                 </div>
             </div>
-          </div>
-      </Wrapper>
-  </div>
+        </Wrapper>
+    </div>
 </template>
 
 
@@ -18,16 +22,20 @@
 <script>
 import Project from "./Project"
 import Wrapper from "./Wrapper"
+import Overlay from "./Overlay";
 
 export default {
     name: 'MyWork',
     components: {
-        Project,
-        Wrapper
-    },
+    Project,
+    Wrapper,
+    Overlay
+},
     props: ["toggle"],
     data() {
         return {
+            expanded: false,
+            selectedId: 0,
             projects: [{
                 id: 1,
                 name: 'Bachelor Project',
@@ -49,6 +57,34 @@ export default {
             }]
         }
     },
+    methods: {
+        expand(id) {
+            this.expanded = true;
+            this.selectedId = id;
+        },
+        close() {
+            this.expanded = false;
+            this.selectedId = 0;
+        },
+        next() {
+            if (this.selectedId < this.projects.length)
+            {
+                this.selectedId++;
+            }
+            else {
+                this.selectedId = 1;
+            }
+        },
+        previous() {
+            if (this.selectedId > 1)
+            {
+                this.selectedId--;
+            }
+            else {
+                this.selectedId = this.projects[this.projects.length - 1].id;
+            }
+        }
+    }
 }
 </script>
 
@@ -77,6 +113,10 @@ h1 {
     margin: 15px 0px;
     width: 100%;
     height: 300px;
+}
+
+.work-navigation {
+    display: none;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -121,6 +161,62 @@ h1 {
         -moz-transform: translateY(100px);
         -o-transform: translateY(100px);
         -webkit-transform: translateY(100px);
+    }
+
+    .work-navigation {
+        transition: all 0.5s;
+        display: block;
+        position: fixed;
+        z-index: 100;
+        cursor: pointer;
+    }
+
+    .work-navigation.left {
+        background-image: url("../assets/navigation-icons/previous.svg");
+        left: 25px;
+        top: calc(50% - 50px);
+        bottom: calc(50% - 50px);
+        right: calc(100% - 125px);
+    }
+
+    .work-navigation.right {
+        background-image: url("../assets/navigation-icons/next.svg");
+        right: 25px;
+        top: calc(50% - 50px);
+        bottom: calc(50% - 50px);
+        left: calc(100% - 125px);
+    }
+
+    .work-navigation.left:hover {
+        background-image: url("../assets/navigation-icons/previous-hover.svg");
+    }
+
+    .work-navigation.left:active {
+        background-image: url("../assets/navigation-icons/previous-click.svg");
+    }
+
+    .work-navigation.right:hover {
+        background-image: url("../assets/navigation-icons/next-hover.svg");
+    }
+
+    .work-navigation.right:active {
+        background-image: url("../assets/navigation-icons/next-click.svg");
+    }
+
+    .hidden.work-navigation.right {
+        opacity: 0;
+        transform: translateX(25px);
+        -moz-transform: translateX(25px);
+        -o-transform: translateX(25px);
+        -webkit-transform: translateX(25px);
+    }
+
+    .hidden.work-navigation.left {
+        opacity: 0;
+        transform: translateX(-25px);
+        -moz-transform: translateX(-25px);
+        -o-transform: translateX(-25px);
+        -webkit-transform: translateX(-25px);
     }
 }
 
