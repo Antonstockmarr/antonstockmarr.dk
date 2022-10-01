@@ -5,7 +5,7 @@
         <div class="content" :class="{hidden: !expanded}">
             <div class="top-image" :style="{ backgroundImage: 'url(' + require(`@/assets/${this.banner}`) + ')' }"></div>
             <div class="project-description">
-                <h1>{{name}}</h1>
+                <h1>{{title}}</h1>
                 <p>{{description}}</p>
             </div>
         </div>
@@ -17,7 +17,7 @@ import ProjectPreview from "./ProjectPreview"
 
 export default {
     name: 'Project',
-    props: ['name', 'image', 'banner', 'description', 'expanded'],
+    props: ['name', 'title','image', 'banner', 'description', 'expanded'],
     components: {
         ProjectPreview
     },
@@ -124,7 +124,9 @@ export default {
     }
 
     .close-btn {
-        display: none;
+        cursor: pointer;
+        bottom: 110px;
+        right: 165px;
     }
 
     .project-description h1 {

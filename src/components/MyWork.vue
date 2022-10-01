@@ -9,7 +9,7 @@
                 <h1>My Work</h1>
                 <div class="projects">
                     <div class="project" v-bind:key="project.id" v-for="project in projects">
-                        <Project :name="project.name" :image="project.image" :banner="project.banner" :description="project.description" :expanded="selectedId == project.id" v-on:expand="expand(project.id)" v-on:close="close"/>
+                        <Project :name="project.name" :title="project.title" :image="project.image" :banner="project.banner" :description="project.description" :expanded="selectedId == project.id" v-on:expand="expand(project.id)" v-on:close="close"/>
                     </div>
                 </div>
             </div>
@@ -39,33 +39,38 @@ export default {
             projects: [{
                 id: 1,
                 name: 'Master Thesis',
+                title: 'Master Thesis in Cloud Technologies',
                 image: `my-work/thesis.png`,
                 banner: `my-work/Dashboards.png`,
-                description: ''
+                description: 'In the field of Cloud Computing, there is a large number of tools that allow companies to monitor their distributed applications. However, it can be a challenge for companies with limited resources to pick the right tools for their application. My friend Muhanad Al-Karwani and I tried to solve this issue in our master thesis. We explored ways of classifying cloud native monitoring tools that reflect their functionality, use cases and data models. The classification model was integrated into an interactive tool that we developed. The tool allows stakeholders to go through a step-by-step wizard and get recommendations for which monitoring tools to use, and how to set them up. In our work we touched upon many different cloud technologies, like Docker, Kubernetes, Azure, as well as a number of popular monitoring tools.'
             }, {
                 id: 2,
-                name: 'Microsoft',
-                image: `my-work/Developyn.png`,
-                banner: `my-work/Flight-Tower.png`,
-                description: 'This summer I spent five weeks at Developyn as an intern. Developyn provides web solutions and SEO for small to medium sized companies. One of their ongoing projects is an internal page for IKEA, called Flight Tower. It was my task to create a testing bot for the site, that could be used to detect errors on the site before deployment. I did this using JavaScript Selenium. During my stay, I also made a number of back end and front end projects used for training. Some of these are displayed on my GitHub, which can be found at the bottom of the site.'
+                name: 'Internship',
+                title: 'Internship at Microsoft',
+                image: `my-work/Microsoft-dynamics.jpeg`,
+                banner: `my-work/Cloud-and-edge-microsoft.jpeg`,
+                description: 'I was an intern at Microsoft for eight weeks, followed by a year as a student worker. During my time there, I was part of three different projects within the field of Supply Chain Management. I was the main developer on a .NET tool that helped other developers set up their environments and data pipelines. The tool was used by both internal and third party developers, and I worked closely together with them to set the direction of the project. I was also working on a web portal for my team, written in TypeScript with React. I was responsible for making the web page compliant with Microsoft\'s accessibility policy. Finally, I was part of a project where we developed ARM templates for Azure environments. The goal was to integrate data from warehouse IoT sensors with Microsoft Dynamics, using Azure resources like Stream Analytics.'
             }, {
                 id: 3,
                 name: 'Bachelor Project',
+                title: 'Bachelor Project in Time Series Analysis',
                 image: `my-work/Bachelor.png`,
                 banner: `my-work/seas-nve.jpeg`,
                 description: 'I wrote my bachelor project with two friends in collaboration with SEAS-NVE, a danish electricity and heat distributor. The goal of the project was to analyze the heat consumption for a number of houses, and to try to visualize the results in a way that would be useful to the consumer. SEAS-NVE has already implemented such a tool for electricity consumption, and it has been statistically proved to work. Our work was mostly based on statistical models and time series analysis.'
             }, {
                 id: 4,
-                name: 'Seges',
-                image: `my-work/Seges_logo.jpg`,
-                banner: `my-work/Codeception.png`,
-                description: 'From 2018 to 2020 I worked at SEGES, who provides research and other services for danish pig breeders. I worked in the department of Breeding and Genetics, as student assistant in IT. My tasks included setting up new Linux servers, managing automatic mail services, and setting up test suites for their website. I created these test suites using the Codeception framework in PHP, running headless browsers with Selenium.'
-            }, {
-                id: 5,
-                name: 'Developyn',
+                name: 'Student Job',
+                title: 'Student Job at Developyn',
                 image: `my-work/Developyn.png`,
                 banner: `my-work/Flight-Tower.png`,
                 description: 'This summer I spent five weeks at Developyn as an intern. Developyn provides web solutions and SEO for small to medium sized companies. One of their ongoing projects is an internal page for IKEA, called Flight Tower. It was my task to create a testing bot for the site, that could be used to detect errors on the site before deployment. I did this using JavaScript Selenium. During my stay, I also made a number of back end and front end projects used for training. Some of these are displayed on my GitHub, which can be found at the bottom of the site.'
+            }, {
+                id: 5,
+                name: 'Student Job',
+                title: 'Student Job at SEGES',
+                image: `my-work/Seges_logo.jpg`,
+                banner: `my-work/Codeception.png`,
+                description: 'From 2018 to 2020 I worked at SEGES, who provides research and other services for danish pig breeders. I worked in the department of Breeding and Genetics, as student assistant in IT. My tasks included setting up new Linux servers, managing automatic mail services, and setting up test suites for their website. I created these test suites using the Codeception framework in PHP, running headless browsers with Selenium.'
             }]
         }
     },
