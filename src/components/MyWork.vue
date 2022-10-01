@@ -38,21 +38,33 @@ export default {
             selectedId: 0,
             projects: [{
                 id: 1,
-                name: 'Bachelor Project',
-                image: `Watts2.png`,
-                banner: `seas-nve.jpeg`,
-                description: 'I wrote my bachelor project with two friends in collaboration with SEAS-NVE, a danish electricity and heat distributor. The goal of the project was to analyze the heat consumption for a number of houses, and to try to visualize the results in a way that would be useful to the consumer. SEAS-NVE has already implemented such a tool for electricity consumption, and it has been statistically proved to work. Our work was mostly based on statistical models and time series analysis.'
+                name: 'Master Thesis',
+                image: `my-work/thesis.png`,
+                banner: `my-work/Dashboards.png`,
+                description: ''
             }, {
                 id: 2,
-                name: 'Seges',
-                image: `Seges_logo.jpg`,
-                banner: `Codeception.png`,
-                description: 'From 2018 to 2020 I worked at SEGES, who provides research and other services for danish pig breeders. I worked in the department of Breeding and Genetics, as student assistant in IT. My tasks included setting up new Linux servers, managing automatic mail services, and setting up test suites for their website. I created these test suites using the Codeception framework in PHP, running headless browsers with Selenium.'
+                name: 'Microsoft',
+                image: `my-work/Developyn.png`,
+                banner: `my-work/Flight-Tower.png`,
+                description: 'This summer I spent five weeks at Developyn as an intern. Developyn provides web solutions and SEO for small to medium sized companies. One of their ongoing projects is an internal page for IKEA, called Flight Tower. It was my task to create a testing bot for the site, that could be used to detect errors on the site before deployment. I did this using JavaScript Selenium. During my stay, I also made a number of back end and front end projects used for training. Some of these are displayed on my GitHub, which can be found at the bottom of the site.'
             }, {
                 id: 3,
+                name: 'Bachelor Project',
+                image: `my-work/Bachelor.png`,
+                banner: `my-work/seas-nve.jpeg`,
+                description: 'I wrote my bachelor project with two friends in collaboration with SEAS-NVE, a danish electricity and heat distributor. The goal of the project was to analyze the heat consumption for a number of houses, and to try to visualize the results in a way that would be useful to the consumer. SEAS-NVE has already implemented such a tool for electricity consumption, and it has been statistically proved to work. Our work was mostly based on statistical models and time series analysis.'
+            }, {
+                id: 4,
+                name: 'Seges',
+                image: `my-work/Seges_logo.jpg`,
+                banner: `my-work/Codeception.png`,
+                description: 'From 2018 to 2020 I worked at SEGES, who provides research and other services for danish pig breeders. I worked in the department of Breeding and Genetics, as student assistant in IT. My tasks included setting up new Linux servers, managing automatic mail services, and setting up test suites for their website. I created these test suites using the Codeception framework in PHP, running headless browsers with Selenium.'
+            }, {
+                id: 5,
                 name: 'Developyn',
-                image: `Developyn.png`,
-                banner: `Flight-Tower.png`,
+                image: `my-work/Developyn.png`,
+                banner: `my-work/Flight-Tower.png`,
                 description: 'This summer I spent five weeks at Developyn as an intern. Developyn provides web solutions and SEO for small to medium sized companies. One of their ongoing projects is an internal page for IKEA, called Flight Tower. It was my task to create a testing bot for the site, that could be used to detect errors on the site before deployment. I did this using JavaScript Selenium. During my stay, I also made a number of back end and front end projects used for training. Some of these are displayed on my GitHub, which can be found at the bottom of the site.'
             }]
         }
@@ -110,23 +122,32 @@ h1 {
 }
 
 .project {
-    margin: 15px 0px;
-    width: 100%;
-    height: 300px;
+    width: min(calc(100vw - 30px), 300px);
+    height: min(calc(100vw - 30px), 300px);
 }
+
+.projects {
+    padding: 15px calc((100vw - 330px) / 2);
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+    }
 
 .work-navigation {
     display: none;
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 680px) {
 
     .projects {
+        padding: 15px calc((100vw - 680px) / 2);
         display: -ms-grid;
         display: grid;
-        -ms-grid-columns: 1fr 50px 1fr 50px 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 50px;
+        -ms-grid-columns: 1fr 35px 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 35px;
     }
 
     h1 {
@@ -146,6 +167,8 @@ h1 {
     :nth-child(1) { --nth-child: 1}
     :nth-child(2) { --nth-child: 2}
     :nth-child(3) { --nth-child: 3}
+    :nth-child(4) { --nth-child: 4}
+    :nth-child(5) { --nth-child: 5}
 
     .project {
         transition: all 1s ease;
@@ -161,6 +184,18 @@ h1 {
         -moz-transform: translateY(100px);
         -o-transform: translateY(100px);
         -webkit-transform: translateY(100px);
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+
+    .projects {
+        padding: 15px 0;
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: 1fr 35px 1fr 35px 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 35px;
     }
 
     .work-navigation {
