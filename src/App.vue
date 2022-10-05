@@ -16,6 +16,12 @@ import Main from "./components/Main"
 
 export default {
   name: 'App',
+  metaInfo: {
+    title: 'Anton Stockmarr',
+    meta: [
+      { name: "description", content: "Hi, I'm Anton Stockmarr, and this is a page about my work!"}
+    ]
+  },
   components: {
     Front,
     Main,
