@@ -1,10 +1,11 @@
 <template>
-  <div class="front" v-show="show">
-    <div class="lines few">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
+  <MouseBackground>    
+    <div class="front" v-show="show">
+      <div class="lines few">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
     <div class="lines many">
       <div class="line"></div>
       <div class="line"></div>
@@ -18,17 +19,21 @@
       <div class="line"></div>
       <div class="line"></div>
     </div>
-    <div class="text">
-      <p class="animated fadeIn delay-1">Hello, I'm <span class="name">Anton Stockmarr</span>.</p>
-      <h1 class="animated fadeIn delay-2">I'm a software engineer.</h1>
-    </div>
-    <button class="animated fadeIn delay-3" @click="goToMain">Continue</button>
   </div>
+  <div class="text" v-show="show">
+    <p class="animated fadeIn delay-1">Hello, I'm <span class="name">Anton Stockmarr</span>.</p>
+    <h1 class="animated fadeIn delay-2">I'm a software engineer.</h1>
+  </div>
+  <button class="animated fadeIn delay-3" v-show="show" @click="goToMain">Continue</button>
+</MouseBackground>
 </template>
 
 <script>
+import MouseBackground from "./MouseBackground";
+
 export default {
   name: 'Front',
+  components: {MouseBackground},
   props: ['show'],
   methods: {
     goToMain() {
@@ -49,6 +54,7 @@ export default {
   width: 100vw;
   padding: 0px;
   position: relative;
+  z-index: -1;
 }
 
 .text {
@@ -64,6 +70,7 @@ export default {
   font-size: 24px;
   color: var(--col2);
   text-align: center;
+  pointer-events: none;
 }
 
 p {
@@ -94,6 +101,7 @@ button {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  z-index: 1;
 }
 
 button:hover {
@@ -135,10 +143,10 @@ button:hover {
   top: -50%;
   left: 0;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
-  animation: run 7s 0s infinite;
-  -moz-animation: run 7s 0s infinite;
-  -o-animation: run 7s 0s infinite;
-  -webkit-animation: run 7s 0s infinite;
+  animation: run 4s 0s infinite;
+  -moz-animation: run 4s 0s infinite;
+  -o-animation: run 4s 0s infinite;
+  -webkit-animation: run 4s 0s infinite;
   animation-fill-mode: forwards;
   -moz-animation-fill-mode: forwards;
   -o-animation-fill-mode: forwards;
@@ -244,10 +252,10 @@ button:hover {
   }
 
   .many .line::after {
-    animation-delay: calc(var(--nth-delay) * 0.5s);
-    -o-animation-delay: calc(var(--nth-delay) * 0.5s);
-    -moz-animation-delay: calc(var(--nth-delay) * 0.5s);
-    -webkit-animation-delay: calc(var(--nth-delay) * 0.5s);
+    animation-delay: calc(var(--nth-delay) * 0.2s);
+    -o-animation-delay: calc(var(--nth-delay) * 0.2s);
+    -moz-animation-delay: calc(var(--nth-delay) * 0.2s);
+    -webkit-animation-delay: calc(var(--nth-delay) * 0.2s);
   }
 }
 </style>
