@@ -19,16 +19,32 @@ let colors = require('../colors.js');
 
 export default {
     name: 'Skills',
-    props: ['toggle'],
+    components: {
+        SkillCard,
+        TiltedBanner
+    },
     data() {
         return {
+            toggle: false,
             showSkill1: false,
             showSkill2: false,
             showSkill3: false,
             showSkill4: false,
         }
     },
-    components: { SkillCard, TiltedBanner },
+    mounted() {
+        let options = { threshold: 1};
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    this.toggle = true;
+                }
+            })
+        }, options);
+        const element = this.$el.querySelector(".skills-grid").firstChild;
+        observer.observe(element);
+
+    },
     methods: {
         colors() {
             return colors.default;

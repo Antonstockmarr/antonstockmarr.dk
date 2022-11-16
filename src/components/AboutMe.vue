@@ -32,17 +32,18 @@ export default {
     data() {
         return {
             show: false,
-            render: false
         }
     },
-    props: ["toggle"],
-    watch: {
-        toggle: function(val) {
-            if (val === true) {
-                this.show = true;
-                setTimeout( () => this.render = true, 500);    
-            }
-        }
+    mounted() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    this.show = true;
+                }
+            })
+        });
+        const element = this.$el.querySelector(".about-me");
+        observer.observe(element);
     }
 
 }
@@ -134,6 +135,10 @@ h1 {
         -webkit-transition: all 0.5s ease;
         -o-transition: all 0.5s ease;
         transition: all 0.5s ease;
+        -webkit-transition-delay: 0.9s;
+        -moz-transition-delay: 0.9s;
+        -o-transition-delay: 0.9s;
+        transition-delay: 0.9s;
     }
 
     .hiddenRight {

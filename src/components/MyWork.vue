@@ -30,10 +30,10 @@ export default {
     Project,
     Wrapper,
     Overlay
-},
-    props: ["toggle"],
+    },
     data() {
         return {
+            toggle: false,
             expanded: false,
             selectedId: 0,
             projects: [{
@@ -73,6 +73,18 @@ export default {
                 description: 'From 2018 to 2020 I worked at SEGES, who provides research and other services for danish pig breeders. I worked in the department of Breeding and Genetics, as student assistant in IT. My tasks included setting up new Linux servers, managing automatic mail services, and setting up test suites for their website. I created these test suites using the Codeception framework in PHP, running headless browsers with Selenium.'
             }]
         }
+    },
+    mounted() {
+        let options = { threshold: 0.5};
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    this.toggle = true;
+                }
+            })
+        }, options);
+        const element = this.$el.querySelector(".projects").firstChild;
+        observer.observe(element);
     },
     methods: {
         expand(id) {
